@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FFF6EE">
+  <title>Chhota Closet — Discover fashion, build the outfit, shop the look</title>
+  <meta name="description"
+    content="A Pinterest-style fashion discovery shop for boys' and girls' clothing in Nepal. Save looks, build outfits to your budget and shop the complete look in NPR.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Outfit:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="features.css">
+  <link rel="stylesheet" href="share.css">
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== Header ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-row">
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" data-act="menu" aria-label="Open menu"
+        aria-controls="menuDrawer">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <a class="logo" href="#/" aria-label="Chhota Closet — home">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-word">Chhota<em>Closet</em></span>
+      </a>
+
+      <form class="search-form" id="searchForm" role="search" autocomplete="off">
+        <label class="sr-only" for="searchCat">Category</label>
+        <select id="searchCat" class="search-cat">
+          <option value="all">All</option>
+          <option value="boys">Boys</option>
+          <option value="girls">Girls</option>
+        </select>
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <label class="sr-only" for="searchInput">Search looks and products</label>
+        <input id="searchInput" type="search" placeholder="Try “college outfit under 2000”" role="combobox"
+          aria-expanded="false" aria-controls="suggest" aria-autocomplete="list">
+        <ul class="suggest" id="suggest" role="listbox" aria-label="Search suggestions" hidden></ul>
+      </form>
+
+      <nav class="main-nav" aria-label="Main">
+        <a class="nav-link" data-nav="explore" href="#/explore">Explore</a>
+        <a class="nav-link" data-nav="reels" href="#/reels"><i class="fa-solid fa-clapperboard" aria-hidden="true"></i>
+          Reels</a>
+        <a class="nav-link" data-nav="builder" href="#/builder">Outfit Builder</a>
+        <a class="nav-link" data-nav="festival" href="#/festival">Festivals</a>
+        <a class="nav-link" data-nav="trending" href="#/trending">Trending</a>
+        <a class="nav-link" data-nav="boards" href="#/boards">Boards</a>
+        <a class="nav-link" data-nav="battle" href="#/battle">Battle</a>
+        <div class="popover-wrap">
+          <button class="nav-link nav-more" type="button" data-pop="more" data-nav="more" aria-expanded="false"
+            aria-haspopup="true" aria-controls="pop-more">More <i class="fa-solid fa-chevron-down"
+              aria-hidden="true"></i></button>
+          <div class="popover menu-pop" id="pop-more" hidden>
+            <a href="#/deals"><i class="fa-solid fa-tags"></i> Deals</a>
+            <a href="#/budget"><i class="fa-solid fa-coins"></i> Budget Outfit Finder</a>
+            <a href="#/size"><i class="fa-solid fa-ruler"></i> Size Finder</a>
+            <a href="#/creators"><i class="fa-solid fa-user-group"></i> Creators</a>
+            <a href="#/store/you"><i class="fa-solid fa-store"></i> My Store</a>
+            <a href="#/orders"><i class="fa-solid fa-box"></i> Orders</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="themeBtn" type="button" data-act="theme" aria-pressed="false"
+          aria-label="Switch to dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+        <button class="icon-btn" id="likeBtn" type="button" data-act="openWishlist" aria-label="Wishlist"><i
+            class="fa-regular fa-heart" aria-hidden="true"></i><span class="badge" id="likeBadge"
+            hidden>0</span></button>
+        <a class="icon-btn" id="messagesBtn" href="#/messages" aria-label="Messages"><i
+            class="fa-regular fa-comment-dots" aria-hidden="true"></i></a>
+
+        <div class="popover-wrap">
+          <button class="icon-btn" id="notifBtn" type="button" data-pop="notif" aria-expanded="false"
+            aria-haspopup="true" aria-controls="pop-notif" aria-label="Notifications"><i class="fa-regular fa-bell"
+              aria-hidden="true"></i><span class="badge dot-badge" id="notifBadge" hidden>0</span></button>
+          <div class="popover notif-pop" id="pop-notif" hidden>
+            <div class="pop-head">
+              <h3>Notifications</h3><button type="button" class="link-btn" data-act="readAll">Mark all read</button>
+            </div>
+            <ul id="notifList"></ul>
+          </div>
+        </div>
+
+        <button class="icon-btn" id="cartBtn" type="button" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"
+            aria-hidden="true"></i><span class="badge" id="cartBadge" hidden>0</span></button>
+
+        <div class="popover-wrap">
+          <button class="icon-btn avatar-btn" id="profileBtn" type="button" data-pop="profile" aria-expanded="false"
+            aria-haspopup="true" aria-controls="pop-profile" aria-label="Account"><i class="fa-regular fa-circle-user"
+              aria-hidden="true"></i></button>
+          <div class="popover profile-pop" id="pop-profile" hidden>
+            <div id="profileMenu"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== Views ===================== -->
+  <main id="main" tabindex="-1">
+
+    <!-- Home / feed -->
+    <section class="view" id="view-home" aria-label="Fashion feed">
+      <div class="intro" id="homeIntro">
+        <p class="intro-eyebrow">Little wardrobes, big personality</p>
+        <h1>Discover the look. Build the outfit. Shop it whole.</h1>
+        <p class="intro-copy">Browse a Pinterest-style feed of boys’ and girls’ fashion from across Nepal, save what
+          catches your eye, then add the complete look to your cart in one tap. Prices in NPR, delivery across Nepal.
+        </p>
+        <div class="intro-cta">
+          <a class="btn-primary" href="#/builder"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+            Build my outfit</a>
+          <button class="btn-secondary" type="button" data-act="publish"><i class="fa-solid fa-plus"
+              aria-hidden="true"></i> Publish a pin</button>
+        </div>
+        <div id="tilesHome"></div>
+      </div>
+      <div id="storyTrayHost" class="story-tray-host"></div>
+      <div class="section-head" id="dealsHead" hidden>
+        <p class="eyebrow">Deals</p>
+        <h1>Looks with 20% or more off</h1>
+        <p class="lead">Sorted by biggest saving. Prices already include the discount.</p>
+      </div>
+      <div class="query-head" id="queryHead" hidden><span id="queryHeadText"></span><button type="button"
+          class="link-btn" data-act="clearQuery">Clear search</button></div>
+
+      <div class="filter-bar" id="filterBar" role="toolbar" aria-label="Filter looks">
+        <button class="filter-pill" type="button" data-act="gender" data-v="all" aria-pressed="true">All</button>
+        <button class="filter-pill" type="button" data-act="gender" data-v="girls" aria-pressed="false">Girls
+          Fashion</button>
+        <button class="filter-pill" type="button" data-act="gender" data-v="boys" aria-pressed="false">Boys
+          Fashion</button>
+        <span class="filter-sep" aria-hidden="true"></span>
+        <div class="occ-row" role="group" aria-label="Occasion">
+          <button class="filter-pill sm" type="button" data-act="occ" data-v="casual"
+            aria-pressed="false">Casual</button>
+          <button class="filter-pill sm" type="button" data-act="occ" data-v="streetwear"
+            aria-pressed="false">Streetwear</button>
+          <button class="filter-pill sm" type="button" data-act="occ" data-v="college"
+            aria-pressed="false">College</button>
+          <button class="filter-pill sm" type="button" data-act="occ" data-v="party" aria-pressed="false">Party</button>
+          <button class="filter-pill sm" type="button" data-act="occ" data-v="wedding"
+            aria-pressed="false">Wedding</button>
+          <button class="filter-pill sm" type="button" data-act="occ" data-v="winter"
+            aria-pressed="false">Winter</button>
+          <button class="filter-pill sm" type="button" data-act="occ" data-v="traditional"
+            aria-pressed="false">Traditional</button>
+          <button class="filter-pill sm" type="button" data-act="occ" data-v="festival"
+            aria-pressed="false">Festival</button>
+        </div>
+        <div class="filter-right">
+          <label class="sr-only" for="sortSelect">Sort looks</label>
+          <select id="sortSelect" class="sort-select">
+            <option value="trending">Trending</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+            <option value="discount">Biggest discount</option>
+          </select>
+          <span class="filter-count" id="filterCount" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="view page" id="view-explore" aria-label="Explore" hidden>
+      <div id="exploreHost"></div>
+    </section>
+
+    <section class="view page" id="view-builder" aria-label="Outfit Builder" hidden>
+      <div class="page-head">
+        <div>
+          <p class="eyebrow">AI outfit builder</p>
+          <h1>Tell us the vibe. We’ll style the whole look.</h1>
+          <p class="lead">Choose who it’s for, the occasion, season, style, budget and colour. We’ll pick a top, bottom,
+            shoes and accessory that work together.</p>
+        </div>
+      </div>
+      <div class="builder">
+        <form class="builder-form" id="bForm" onsubmit="return false" aria-label="Outfit preferences"></form>
+        <div class="builder-result" id="bResult" aria-live="polite"></div>
+      </div>
+      <div class="saved-outfits" id="savedOutfits"></div>
+    </section>
+
+    <section class="view page" id="view-budget" aria-label="Budget outfit finder" hidden>
+      <div id="budgetHost"></div>
+    </section>
+    <section class="view page" id="view-festival" aria-label="Festival fashion" hidden>
+      <div id="festivalHost"></div>
+    </section>
+    <section class="view page" id="view-trending" aria-label="Nepal trend radar" hidden>
+      <div id="trendHost"></div>
+    </section>
+    <section class="view page" id="view-boards" aria-label="Fashion boards" hidden>
+      <div id="boardsHost"></div>
+    </section>
+    <section class="view page" id="view-battle" aria-label="Outfit battle" hidden>
+      <div id="battleHost"></div>
+    </section>
+    <section class="view page" id="view-size" aria-label="Size finder" hidden>
+      <div id="sizeHost"></div>
+    </section>
+    <section class="view page" id="view-creators" aria-label="Creators" hidden>
+      <div id="creatorsHost"></div>
+    </section>
+    <section class="view page" id="view-store" aria-label="Store" hidden>
+      <div id="storeHost"></div>
+    </section>
+    <section class="view page reels-view" id="view-reels" aria-label="Reels" hidden>
+      <div id="reelsHost"></div>
+    </section>
+    <section class="view page" id="view-messages" aria-label="Messages" hidden>
+      <div id="messagesHost"></div>
+    </section>
+    <section class="view page" id="view-profile" aria-label="Profile" hidden>
+      <div id="profileHost"></div>
+    </section>
+    <section class="view page" id="view-orders" aria-label="Orders" hidden>
+      <div id="ordersHost"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Chhota Closet — a Nepal fashion discovery concept. Outfit pictures are generated illustrations; prices, sellers
+      and trends are demo data. Payments are simulated.</p>
+  </footer>
+
+  <!-- ===================== Mobile bottom navigation ===================== -->
+  <nav class="bottom-nav" id="bottomNav" aria-label="Quick navigation">
+    <a href="#/" data-bn="home"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+    <a href="#/reels" data-bn="reels"><i class="fa-solid fa-clapperboard" aria-hidden="true"></i><span>Reels</span></a>
+    <button type="button" class="bn-create" data-act="create" aria-label="Create"><i class="fa-solid fa-plus"
+        aria-hidden="true"></i></button>
+    <a href="#/messages" data-bn="messages"><i class="fa-regular fa-comment-dots"
+        aria-hidden="true"></i><span>Messages</span></a>
+    <a href="#/profile" data-bn="profile"><i class="fa-regular fa-user" aria-hidden="true"></i><span>Profile</span></a>
+  </nav>
+
+  <!-- ===================== Slide-in menu (mobile / tablet) ===================== -->
+  <aside class="drawer left" id="menuDrawer" aria-label="Menu" aria-hidden="true">
+    <div class="drawer-head">
+      <h2>Menu</h2><button class="icon-btn" id="closeMenu" type="button" aria-label="Close menu"><i
+          class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <nav class="menu-list" aria-label="All sections">
+      <a href="#/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="#/explore"><i class="fa-regular fa-compass"></i> Explore</a>
+      <a href="#/reels"><i class="fa-solid fa-clapperboard"></i> Reels</a>
+      <a href="#/messages"><i class="fa-regular fa-comment-dots"></i> Messages</a>
+      <a href="#/" data-act="menuGender" data-v="boys"><i class="fa-solid fa-person"></i> Boys</a>
+      <a href="#/" data-act="menuGender" data-v="girls"><i class="fa-solid fa-person-dress"></i> Girls</a>
+      <a href="#/trending"><i class="fa-solid fa-fire"></i> Trending</a>
+      <a href="#/builder"><i class="fa-solid fa-wand-magic-sparkles"></i> Outfit Builder</a>
+      <a href="#/boards"><i class="fa-regular fa-bookmark"></i> Fashion Boards</a>
+      <a href="#/festival"><i class="fa-solid fa-gift"></i> Festival Fashion</a>
+      <a href="#/battle"><i class="fa-solid fa-bolt"></i> Outfit Battle</a>
+      <a href="#/budget"><i class="fa-solid fa-coins"></i> Budget Finder</a>
+      <a href="#/size"><i class="fa-solid fa-ruler"></i> Size Finder</a>
+      <a href="#/creators"><i class="fa-solid fa-user-group"></i> Creators</a>
+      <a href="#/store/you"><i class="fa-solid fa-store"></i> My Store</a>
+      <a href="#/deals"><i class="fa-solid fa-tags"></i> Deals</a>
+      <a href="#/orders"><i class="fa-solid fa-box"></i> Orders</a>
+      <a href="#/profile"><i class="fa-regular fa-user"></i> Profile</a>
+      <button type="button" data-act="theme"><i class="fa-solid fa-circle-half-stroke"></i> <span data-theme-label>Dark
+          mode</span></button>
+    </nav>
+  </aside>
+
+  <!-- ===================== Cart drawer ===================== -->
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-head">
+      <h2>Your cart <span id="cartTitleCount"></span></h2><button class="icon-btn" id="closeCart" type="button"
+        aria-label="Close cart"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-foot" id="cartFoot" hidden></div>
+  </aside>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <div id="modalRoot"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <datalist id="cityList"></datalist>
+
+  <script src="data.js"></script>
+  <script src="art.js"></script>
+  <script src="core.js"></script>
+  <script src="cart.js"></script>
+  <script src="pins.js"></script>
+  <script src="feed.js"></script>
+  <script src="detail.js"></script>
+  <script src="builder.js"></script>
+  <script src="discover.js"></script>
+  <script src="size.js"></script>
+  <script src="app.js"></script>
+  <script src="share.js"></script>
+  <script src="stories.js"></script>
+  <script src="reels.js"></script>
+  <script src="editor.js"></script>
+  <script src="store.js"></script>
+  <script src="payments.js"></script>
+  <script>
+    /* mount the Story tray on the home feed, and keep it in sync */
+    (function (CC) {
+      var host = document.getElementById("storyTrayHost");
+      if (host && CC.stories) CC.stories.mountTray(host);
+      CC.on("view", function (name) { if (name === "home" && host && CC.stories) CC.stories.mountTray(host); });
+    })(window.CC);
+  </script>
+</body>
+
+</html>
